@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Roboto/RobotoBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Sprites/si-background.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/SceneManager.cs" type="Script" id=4]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=5]
+
+[node name="SceneRoot" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource( 4 )
+playerSpawnPositionPath = NodePath("../PlayerSpawnLocation")
+enemy = ExtResource( 5 )
+player = ExtResource( 2 )
+
+[node name="FinalMessage" type="CanvasLayer" parent="."]
+layer = 20
+follow_viewport_scale = 0.001
+
+[node name="LossText" type="Label" parent="FinalMessage"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "You lose!!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinText" type="Label" parent="FinalMessage"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 0.152941, 1, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "You win!!!"
+align = 1
+valign = 1
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+follow_viewport_scale = 0.001
+
+[node name="Sky" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerSpawnLocation" type="Node2D" parent="."]
+position = Vector2( 512, 512 )

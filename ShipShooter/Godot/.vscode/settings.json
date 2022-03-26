@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "Builds/": true,
+        ".mono/": true,
+        ".import/": true,
+        "**/*.fbx": true,
+        "**/*.material": true,
+        "**/*.import": true
+    },
+    "cSpell.words": [
+        "Randf",
+        "tscn"
+    ]
+}

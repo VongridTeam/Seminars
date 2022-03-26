@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Enemy.cs" type="Script" id=1]
+[ext_resource path="res://Art/Sprites/Enemy.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/EnemyBullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 35.0
+height = 26.0
+
+[node name="Enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+speed = 50.0
+maxfireRate = 2.0
+minfireRate = 0.5
+bullet = ExtResource( 3 )
+timerPath = NodePath("FireTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+z_index = 10
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FireTimer" type="Timer" parent="."]
+one_shot = true
