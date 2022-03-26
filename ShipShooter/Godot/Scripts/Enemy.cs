@@ -69,7 +69,6 @@ namespace Vongrid.ShipShooter
 
         private void Hit(Node body)
         {
-            GD.Print($"Body: {body}");
             if (body.IsInGroup("PlayerProjectile"))
             {
                 sceneManager.UnitDied(this);
@@ -95,9 +94,9 @@ namespace Vongrid.ShipShooter
             return velocity;
         }
 
-        private float PingPong(float selfIncrimentingValue, float maxValue)
+        private float PingPong(float selfIncrementingValue, float maxValue)
         {
-            float currentValue = selfIncrimentingValue % (maxValue * 2);
+            float currentValue = selfIncrementingValue % (maxValue * 2);
 
             if (currentValue >= 0 && currentValue < maxValue)
             {
