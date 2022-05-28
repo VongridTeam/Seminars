@@ -1,0 +1,12 @@
+# Import cache
+*/.import/
+
+*/*.translation
+*/export_presets.cfg
+*/.mono/
+*/mono_crash.*.json
+
+# Binaries
+*/bin/
+*/[bB]uilds/
+*/lib/
